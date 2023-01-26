@@ -116,7 +116,7 @@ fn main() {
     (segment_line.a, segment_line.b, segment_line.c) = find_line_equation(points_array[i * 4], points_array[i * 4 + 1], points_array[i * 4 + 2], points_array[i * 4 + 3]);
     //находим пересечение между прямой отрезка и полупрямой
     let intersect_answer = find_point_intersect(main_line, segment_line); 
-    if intersect_answer.2 {println!("Отрезок ({},{}) и ({},{}) имеет точку пересечения в ({},{})!",points_array[i * 4], points_array[i * 4 + 1], points_array[i * 4 + 2], points_array[i * 4 + 3], intersect_answer.0, intersect_answer.1 );}
+    if intersect_answer.2 && is_between(intersect_answer.0, intersect_answer.1 ,points_array[i * 4], points_array[i * 4 + 1], points_array[i * 4 + 2], points_array[i * 4 + 3]) {println!("Отрезок ({},{}) и ({},{}) имеет точку пересечения в ({},{})!",points_array[i * 4], points_array[i * 4 + 1], points_array[i * 4 + 2], points_array[i * 4 + 3], intersect_answer.0, intersect_answer.1 );}
     else {println!("Отрезок ({},{}) и ({},{}) не имеет точку пересечения!",points_array[i * 4], points_array[i * 4 + 1], points_array[i * 4 + 2], points_array[i * 4 + 3]);}
     } 
 }
